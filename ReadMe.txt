@@ -2,6 +2,10 @@ https://github.com/okovtun/SPD_211.git
 https://www.youtube.com/watch?v=uRjDUq3D1ig&list=PLeqyOOqxeiIO2wVb2uAiSaw1BfUroauVZ
 
 TODO:
+1. Проверочный код в секции 'HOME_WORK_1' должен заработать:https://github.com/okovtun/SPD_211/blob/33fc7ca4471d3184fd09e60e19a3975ea402b196/IntroductionToOOP/Fraction/main.cpp#LL460C15-L460C15;
+2. 
+
+DONE:
 В классе Fraction написать конструкторы и прочие необходимые методы, 
 а так же перегрузить следующие операторы:
 	1. Арифметические операторы:	+, -, *, /;			DONE
