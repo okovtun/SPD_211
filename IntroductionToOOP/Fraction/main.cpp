@@ -55,6 +55,17 @@ public:
 		this->denominator = 1;
 		cout << "1ArgConstructor:\t" << this << endl;
 	}
+	Fraction(double decimal)
+	{
+		decimal += 1e-10;
+		this->integer = decimal;	//получаем целую часть десятичной дроби
+		decimal -= integer;			//убираем целую часть из десятичной дроби
+		//4 000 000 000
+		denominator = 1e9;	//Записываем максимально-возможный знаменатель
+							//1e10 = 1*10^10
+		numerator = decimal * denominator;	//вытаскиваем всю дробную часть в числитель
+		reduce();
+	}
 	Fraction(int numerator, int denominator)
 	{
 		this->integer = 0;
@@ -458,7 +469,7 @@ void main()
 #endif // CONVERSION_FROM_CLASS_TO_OTHER
 
 #ifdef HOME_WORK_1
-	Fraction A = 2.75;
+	Fraction A = 2.333;
 	cout << A << endl;
 #endif // HOME_WORK_1
 
