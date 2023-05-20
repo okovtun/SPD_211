@@ -2,6 +2,14 @@ https://github.com/okovtun/SPD_211.git
 https://www.youtube.com/watch?v=uRjDUq3D1ig&list=PLeqyOOqxeiIO2wVb2uAiSaw1BfUroauVZ
 
 TODO:
+1. В класс String добавить MoveAssignment;
+	https://legacy.cplusplus.com/doc/tutorial/classes2/
+2. Реализовать класс Matrix, описывающий матрицу, и позволяющий выполнять следующие операции над матрицами:
+	-Арифметические операции: +, -, *, /;
+	-Поиск обратной матрицы;
+	-Вычисление определителя матрицы;
+
+DONE:
 1. Проверочный код в секции 'HOME_WORK_1' должен заработать:https://github.com/okovtun/SPD_211/blob/33fc7ca4471d3184fd09e60e19a3975ea402b196/IntroductionToOOP/Fraction/main.cpp#LL460C15-L460C15;
 2. Проверочный код в секции 'HOME_WORK' должен заработать:  https://github.com/okovtun/SPD_211/blob/56aa674f85bc9c1ee5e326a71973688bbde114fe/IntroductionToOOP/String/main.cpp#LL39C6-L39C6
 
