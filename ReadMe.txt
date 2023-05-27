@@ -2,6 +2,13 @@ https://github.com/okovtun/SPD_211.git
 https://www.youtube.com/watch?v=uRjDUq3D1ig&list=PLeqyOOqxeiIO2wVb2uAiSaw1BfUroauVZ
 
 TODO:
+1. Разделить 'String' на отдельные файлы;
+2. Создать новый Solution 'Inheritance\Academy', и в нем реализовать Академию;
+3. Записать группу в файл;
+4. Загрузить группу из файла;
+	https://legacy.cplusplus.com/doc/tutorial/files/
+
+DONE:
 1. В класс String добавить MoveAssignment;
 	https://legacy.cplusplus.com/doc/tutorial/classes2/
 2. Реализовать класс Matrix, описывающий матрицу, и позволяющий выполнять следующие операции над матрицами:
