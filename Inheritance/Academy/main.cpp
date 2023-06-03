@@ -126,6 +126,11 @@ public:
 	}
 };
 
+std::ostream& operator<<(std::ostream& os, const Student& obj)
+{
+	return os << (Human&)obj << " " << obj.get_speciality() << " " << obj.get_group() << " " << obj.get_rating() << " " << obj.get_attendance();
+}
+
 #define TEACHER_TAKE_PARAMETERS	const std::string& speciality, int experience
 #define TEACHER_GIVE_PARAMETERS	speciality, experience
 class Teacher :public Human
@@ -166,6 +171,10 @@ public:
 		cout << speciality << " " << experience << endl;
 	}
 };
+std::ostream& operator<<(std::ostream& os, const Teacher& obj)
+{
+	return os << (Human&)obj << " " << obj.get_speciality() << " " << obj.get_experience();
+}
 
 class Graduate :public Student
 {
@@ -196,6 +205,11 @@ public:
 		cout << subject << endl;
 	}
 };
+std::ostream& operator<<(std::ostream& os, const Graduate& obj)
+{
+	return os << (Student&)obj << " " << obj.get_subject();
+}
+
 
 void print(Human** group, const int n)
 {
@@ -203,7 +217,11 @@ void print(Human** group, const int n)
 	for (int i = 0; i < n; i++)
 	{
 		//group[i]->print();
-		cout << *group[i] << endl;
+		cout << typeid(*group[i]).name() << endl;
+		//https://legacy.cplusplus.com/doc/tutorial/typecasting/#:~:text=own%20special%20characteristics%3A-,dynamic_cast,-dynamic_cast%20can%20only
+		if (typeid(*group[i]) == typeid(Student))cout << *dynamic_cast<Student*>(group[i]) << endl;
+		if (typeid(*group[i]) == typeid(Teacher))cout << *dynamic_cast<Teacher*>(group[i]) << endl;
+		if (typeid(*group[i]) == typeid(Graduate))cout << *dynamic_cast<Graduate*>(group[i]) << endl;
 		cout << delimiter << endl;
 	}
 }
@@ -217,7 +235,7 @@ void save(Human** group, const int n, const char* filename)
 		fout << delimiter << endl;
 	}
 	fout.close();
-	char command[FILENAME_MAX] = "notepad ";
+	char command[FILENAME_MAX] = "start notepad ";
 	strcat(command, filename);
 	system(command);
 }
@@ -263,8 +281,9 @@ void main()
 	};
 
 	//Specialisation:
-	print(group, sizeof(group) / sizeof(group[0]));
-	save(group, sizeof(group) / sizeof(group[0]), "group.txt");
+	int n = sizeof(group) / sizeof(group[0]);
+	print(group, n);
+	save(group, n, "group.txt");
 
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
 	{
