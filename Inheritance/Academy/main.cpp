@@ -1,4 +1,6 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<fstream>
 #include<string>
 using namespace std;
 
@@ -56,6 +58,11 @@ public:
 		cout << last_name << " " << first_name << " " << age << " y/o" << endl;
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, const Human& obj)
+{
+	return os << obj.get_last_name() << " " << obj.get_first_name() << " " << obj.get_age();
+}
 
 #define STUDENT_TAKE_PARAMETERS const std::string& speciality, const std::string& group, double rating, double attendance
 #define STUDENT_GIVE_PARAMETERS speciality, group, rating, attendance
@@ -190,6 +197,31 @@ public:
 	}
 };
 
+void print(Human** group, const int n)
+{
+	cout << delimiter << endl;
+	for (int i = 0; i < n; i++)
+	{
+		//group[i]->print();
+		cout << *group[i] << endl;
+		cout << delimiter << endl;
+	}
+}
+void save(Human** group, const int n, const char* filename)
+{
+	ofstream fout(filename);
+	fout << delimiter << endl;
+	for (int i = 0; i < n; i++)
+	{
+		fout << *group[i] << endl;
+		fout << delimiter << endl;
+	}
+	fout.close();
+	char command[FILENAME_MAX] = "notepad ";
+	strcat(command, filename);
+	system(command);
+}
+
 //#define INHERITANCE_CHECK
 #define POLYMORPHISM
 
@@ -231,12 +263,8 @@ void main()
 	};
 
 	//Specialisation:
-		cout << delimiter << endl;
-	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
-	{
-		group[i]->print();
-		cout << delimiter << endl;
-	}
+	print(group, sizeof(group) / sizeof(group[0]));
+	save(group, sizeof(group) / sizeof(group[0]), "group.txt");
 
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
 	{
