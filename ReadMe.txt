@@ -4,9 +4,10 @@ https://www.youtube.com/watch?v=uRjDUq3D1ig&list=PLeqyOOqxeiIO2wVb2uAiSaw1BfUroa
 TODO:
 1. Разделить 'String' на отдельные файлы;
 2. Создать новый Solution 'Inheritance\Academy', и в нем реализовать Академию;
-3. Записать группу в файл;
+3. Сохранить группу в файл;
 4. Загрузить группу из файла;
 	https://legacy.cplusplus.com/doc/tutorial/files/
+5.*Создать ветку 'Separated Academy', и в этой ветке вынести классы в отдельные файлы;
 
 DONE:
 1. В класс String добавить MoveAssignment;
