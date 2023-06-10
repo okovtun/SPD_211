@@ -210,7 +210,7 @@ public:
 	}
 	void set_speciality(const std::string& speciality)
 	{
-		this->speciality = speciality;
+		this->speciality = speciality
 	}
 	void set_experience(int experience)
 	{
